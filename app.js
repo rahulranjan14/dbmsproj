@@ -42,7 +42,7 @@ app.get('/',(req, res) => {
     let sql = "SELECT * FROM questions";
     let query = connection.query(sql, (err, rows) => {
         if(err) throw err;
-        res.render('Homepage', {
+        res.render('homepage', {
             title : 'Crack Your Next Technical Interview',
             questions : rows,
             logo : logo
