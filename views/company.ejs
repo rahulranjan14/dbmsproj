@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body style="align-items: center; justify-content: center; background-color: #EAF0F1;">
+
+  <%- include("header") %>
+
+
+
+  <div class="card bg-white  text-white" style="padding-top:150px; padding-bottom: 200px; padding-right: 20px; padding-left: 20px; margin-top: 5px; margin-bottom: 100px;">
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12" style="display: flex; align-items: center; justify-content: center;">
+          <img src=<%= logo %> style="height: auto ; width: 75%;" class="card-img" alt="...">
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12" style="display: flex; align-items: center; justify-content: center;">
+            <h1 class="text-dark" style="text-align: center; font-size: 5vw; margin-top: 10vh;"><%= title %></h1>
+        </div>
+    </div>
+    </div>
+  
+</div>
+</div>
+
+
+
+<div class="container">
+
+<!--looping over the object send(array of questions) and displaying details-->
+      
+        <% questions.forEach(function(question){ %>
+           
+            <div class="card w-100" style="border-radius: 10px; margin-top: 30px; margin-bottom: 30px; box-shadow: 0px 0px 15px #888888">
+                <div class="card-body">
+                  <h6 class="card-title">Topic : <%= question.topicName %></h5>
+                    <p style="font-weight: bold;">Question:</p>
+                  <p class="card-text"><span style="display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; width: 100%; height: 100%;">  <%= question.question %> </span></p>
+                  
+                </div>
+                <button class="btn btn-dark ml-auto" style=" margin-bottom: 10px; margin-top: 20px; margin-left: 20px;margin-right: 15px; box-shadow: 0px 0px 5px #888888"> <a href="question/<%= question.id %>" style="text-decoration: none;  margin-bottom: 2px; margin-top: 2px; margin-left: 2px;margin-right: 2px;" class="text-white" >View</a> </button>
+            </div>
+
+                
+        <% }); %>
+  
+</div>
+
+<%- include("footer") %>
+
+</body>
+</html>

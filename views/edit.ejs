@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body style="align-items: center; justify-content: center; background-color: #EAF0F1;">
+
+  <%- include("header") %>
+
+  <div class="container">
+<div class=" card" style="margin-top: 90px;  box-shadow: 0px 0px 15px #888888; padding: 20px; border-radius: 10px;">
+ 
+  <h1 style="text-align: center; text-shadow: 1px 2px 3px #616C6F;"><%= title %></h1>
+  <form action="/update" method="post">
+    <input type="hidden" value="<%= question.id %>" name="id">
+
+
+    <div class="form-group">
+      <label for="companyName" style="font-weight: bold;">Company:</label>
+      <input type="text" class="form-control" id="company" placeholder="Enter Company Name(in CAPS)" value="<%= question.companyName %>" style="box-shadow: 0px 0px 2px #888888;" name="companyName" required>
+    </div>
+    <div class="form-group">
+      <label for="topicName", style="font-weight: bold;">Topic:</label>
+      <input type="text" class="form-control" id="topic" placeholder="Enter Topic  name(in CAPS)" value="<%= question.topicName %>" style="box-shadow: 0px 0px 2px #888888;" name="topicName" required>
+    </div>
+    <div class="form-group">
+      <label for="question" style="font-weight: bold;">Question:</label>
+      <textarea type="text" class="form-control" id="question" placeholder="Enter the question" name="question" style="height: 250px; box-shadow: 0px 0px 2px #888888; " required> <%= question.question %> </textarea>
+    </div>
+    <div class="form-group">
+      <label for="answer" style="font-weight: bold;">Answer:</label>
+      <textarea type="text" class="form-control" id="answer" placeholder="Enter the answer" name="answer" style="height: 500px; box-shadow: 0px 0px 2px #888888; " required> <%= question.answer %> </textarea>
+    </div>
+    <div class="row">
+      <div class="col" style="display: flex; flex-direction: row-reverse;">
+    <button type="submit" class="btn btn-md text-white  ml-auto" style="background-color: #333945; box-shadow: 0px 0px 6px #888888">Submit</button>
+  </div>
+    </div>
+  </form>
+
+</div>
+</div>
+
+<%- include("footer") %>
+
+</body>
+</html>
