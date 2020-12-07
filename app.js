@@ -22,7 +22,7 @@ const connection=mysql.createConnection({
 //checking for response whether databse connected or not
 connection.connect(function(error){
     if(!!error) console.log(error);
-    else console.log('Database Connected!');
+    else console.log('Database Connected successfully!');
 }); 
 
 //setting views file(for displaying frontend pages)
