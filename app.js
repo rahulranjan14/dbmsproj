@@ -1,3 +1,5 @@
+var PORT = process.env.PORT || 4000
+
 //importing required files
 const path = require('path');
 const express = require('express');
@@ -6,7 +8,16 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const app = express();
 
-var port = process.env.PORT || 4000
+
+
+var http = require('http');
+var server = http.Server(app);
+
+
+// listening/connecting  server 
+server.listen(PORT, () => {
+    console.log(`Server is running at port ${PORT}`);
+});
 
 app.use( express.static( "public" ) );
 
@@ -247,8 +258,3 @@ app.get('/paytm',(req, res) => {
 
 
 
-
-// listening/connecting  server 
-app.listen(port, () => {
-    console.log(`Server is running at port ${4000}`);
-});
