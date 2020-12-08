@@ -1,5 +1,4 @@
-var PORT = process.env.PORT || 4000
-
+require('dotenv').config()
 //importing required files
 const path = require('path');
 const express = require('express');
@@ -8,6 +7,7 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const app = express();
 
+var PORT = process.env.PORT || 4000
 
 
 var http = require('http');
@@ -31,10 +31,13 @@ const connection=mysql.createConnection({
 });
 
 //checking for response whether databse connected or not
-connection.connect(function(error){
-    if(!!error) console.log(error);
-    else console.log('Database Connected successfully!');
-}); 
+connection.connect();
+
+connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+    if (error) throw error;
+    console.log('The solution is: ', results[0].solution);
+  });
+   
 
 //setting views file(for displaying frontend pages)
 app.set('views',path.join(__dirname,'views'));
